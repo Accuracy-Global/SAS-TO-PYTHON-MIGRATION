@@ -1,0 +1,13 @@
+/* ngs-code-editor .editor {
+    width: 100%;
+    height: inherit;
+    min-height: 100%;
+} */
+::ng-deep ngs-code-editor .editor {
+    height: 350px !important;
+    min-height: 350% !important;
+}
+
+/* ::ng-deep ngx-monaco-editor {
+    height: 100% !important;
+  } */
