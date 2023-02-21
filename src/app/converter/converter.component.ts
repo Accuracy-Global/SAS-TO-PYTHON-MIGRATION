@@ -4,6 +4,8 @@ import { HttpService } from '../http.service';
 import { Router } from '@angular/router';
 // import { NgxSpinnerService } from 'ngx-spinner';
 import swal from 'sweetalert2';
+declare var require: any
+const FileSaver = require('file-saver');
 
 @Component({
   selector: 'app-converter',
@@ -48,7 +50,7 @@ export class ConverterComponent implements OnInit {
     });
    
   }
-
+  
   onCodeChangedsas(value) {
     console.log(value);
     this.sas = value;
@@ -59,6 +61,24 @@ export class ConverterComponent implements OnInit {
     this.python = value;
   }
 
+  downloadsas() {
+    // var pdfUrl = Url;
+    // console.log(pdfUrl);
+    // //const pdfName = 'your_pdf_file';
+    // FileSaver.saveAs(pdfUrl, pdfName);
+    var blob = new Blob([this.sas], {type: "text/plain;charset=utf-8"});
+    FileSaver.saveAs(blob, "code.sas");
+
+  }
+  downloadpython() {
+    // var pdfUrl = Url;
+    // console.log(pdfUrl);
+    // //const pdfName = 'your_pdf_file';
+    // FileSaver.saveAs(pdfUrl, pdfName);
+    var blob = new Blob([this.python], {type: "text/plain;charset=utf-8"});
+    FileSaver.saveAs(blob, "code.py");
+
+  }
   converterFormSubmit(model: FormGroup) {
     // this.spinner.show();
     model.value.sas = this.sas;

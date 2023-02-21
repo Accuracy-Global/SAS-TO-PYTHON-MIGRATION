@@ -15,10 +15,10 @@
                     <label class="form-label"><b>SAS</b></label>
                 </div>
                 <div class="mb-3" style="text-align: end;">
-                    <button type="button" class="btn btn-success">Export</button>
+                    <button type="button" class="btn btn-success" (click)="downloadsas()">Export</button>
                 </div>
                 <div class="mb-3">
-                    <input class="form-control" type="file"/>
+                    <input class="form-control" type="file" multiple />
                 </div>
                 <div class="mb-3">
                     
@@ -37,10 +37,10 @@
                     <label class="form-label"><b>Python</b></label>
                 </div>
                 <div class="mb-3" style="text-align: end;">
-                    <button type="button" class="btn btn-success">Export</button>
+                    <button type="button" class="btn btn-success" (click)="downloadpython()">Export</button>
                 </div>
                 <div class="mb-3">
-                    <input class="form-control" type="file"/>
+                    <input class="form-control" type="file" multiple />
                 </div>
                 <div class="mb-3">
                     <ngs-code-editor 
