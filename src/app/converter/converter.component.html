@@ -15,12 +15,15 @@
                     <label class="form-label"><b>SAS</b></label>
                 </div>
                 <div class="mb-3" style="text-align: end;">
+                    <button class="btn btn-secondary" (click)="showTerminalsas()" style="margin-right: 10px;">
+                        Run
+                    </button>
                     <button type="button" class="btn btn-success" (click)="downloadsas()">Export</button>
                 </div>
                 <div class="mb-3">
                     <input class="form-control" type="file" multiple />
                 </div>
-                <div class="mb-3">
+                <div>
                     
                     <ngs-code-editor 
                         theme="vs-dark"  
@@ -30,6 +33,29 @@
                     </ngs-code-editor>
                     <!-- <textarea class="form-control" rows="15" formControlName="sas"></textarea> -->
                 </div>
+                <div style="padding-left: 11px;">
+                    <div
+                    *ngIf="isShowTerminalsas"
+                    class="row"
+                    style="
+                      background-color: #212529;
+                      color: white;
+                      border: 1px double;
+                      height: 27%;
+                      overflow-y: scroll;
+                      z-index: 1;
+                    "
+                  >
+                    <h5>
+                      <b>Terminal</b>
+                    </h5>
+                    <div>
+                      <p>
+                        Output
+                      </p>
+                    </div>
+                  </div>
+                </div>
         
             </div>
             <div class="col">
@@ -37,12 +63,15 @@
                     <label class="form-label"><b>Python</b></label>
                 </div>
                 <div class="mb-3" style="text-align: end;">
+                    <button class="btn btn-secondary" (click)="showTerminalpython()" style="margin-right: 10px;">
+                        Run
+                    </button>
                     <button type="button" class="btn btn-success" (click)="downloadpython()">Export</button>
                 </div>
                 <div class="mb-3">
                     <input class="form-control" type="file" multiple />
                 </div>
-                <div class="mb-3">
+                <div>
                     <ngs-code-editor 
                         theme="vs-dark"  
                         language="python"                   
@@ -51,9 +80,32 @@
                     </ngs-code-editor>
                     <!-- <textarea class="form-control" rows="15" formControlName="python"></textarea> -->
                 </div>
+                <div class="mb-3" style="padding-left: 11px;">
+                    <div
+                    *ngIf="isShowTerminalpython"
+                    class="row"
+                    style="
+                      background-color: #212529;
+                      color: white;
+                      border: 1px double;
+                      height: 27%;
+                      overflow-y: scroll;
+                      z-index: 1;
+                    "
+                  >
+                    <h5>
+                      <b>Terminal</b>
+                    </h5>
+                    <div>
+                      <p>
+                        Output
+                      </p>
+                    </div>
+                  </div>
+                </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="margin-bottom: 24px;">
             <div class="col" style="text-align: center;">
                 <button type="submit" class="btn btn-primary">Convert</button>
             </div>

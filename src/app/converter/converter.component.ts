@@ -20,6 +20,8 @@ export class ConverterComponent implements OnInit {
 
   sas:any;
   python:any;
+  isShowTerminalsas = false;
+  isShowTerminalpython = false;
 
   // dependencies: string[] = [
   //   '@types/node',
@@ -78,6 +80,12 @@ export class ConverterComponent implements OnInit {
     var blob = new Blob([this.python], {type: "text/plain;charset=utf-8"});
     FileSaver.saveAs(blob, "code.py");
 
+  }
+  showTerminalsas(){
+    this.isShowTerminalsas = true;
+  }
+  showTerminalpython(){
+    this.isShowTerminalpython = true;
   }
   converterFormSubmit(model: FormGroup) {
     // this.spinner.show();
