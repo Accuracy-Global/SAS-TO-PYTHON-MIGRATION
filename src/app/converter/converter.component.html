@@ -4,15 +4,15 @@
         <!-- <a class="nav-link text-white" routerLink="/Dashboard"> Home <i class="fa fa-home" aria-hidden="true"></i></a> -->
     </div>
 </nav>
-<div class="container" style="margin-top: 36px;">
+<div style="margin-left: 14px;margin-right: 24px;">
 
     <form [formGroup]="convertform" (ngSubmit)="converterFormSubmit(convertform)">
 
         <div class="row">
-            <div class="col">
+            <div class="col-6">
                 <div style="text-align: center;">
 
-                    <label class="form-label"><b>SAS</b></label>
+                    <label class="form-label" style="font-size: 25px;"><b>SAS</b></label>
                 </div>
                 <div class="mb-3" style="text-align: end;">
                     <button class="btn btn-secondary" (click)="showTerminalsas()" style="margin-right: 10px;">
@@ -49,18 +49,19 @@
                     <h5>
                       <b>Terminal</b>
                     </h5>
-                    <div>
-                      <p>
+                    <div style="height: 150px;">
+                      <p style="margin-bottom: 2px;">
                         Output
                       </p>
+                      <!-- <p>hi</p> -->
                     </div>
                   </div>
                 </div>
         
             </div>
-            <div class="col">
+            <div class="col-6">
                 <div style="text-align: center;">
-                    <label class="form-label"><b>Python</b></label>
+                    <label class="form-label" style="font-size: 25px;"><b>Python</b></label>
                 </div>
                 <div class="mb-3" style="text-align: end;">
                     <button class="btn btn-secondary" (click)="showTerminalpython()" style="margin-right: 10px;">
@@ -96,10 +97,11 @@
                     <h5>
                       <b>Terminal</b>
                     </h5>
-                    <div>
-                      <p>
+                    <div style="height: 150px;">
+                      <p style="margin-bottom: 2px;">
                         Output
                       </p>
+                      <!-- <p>hi</p> -->
                     </div>
                   </div>
                 </div>

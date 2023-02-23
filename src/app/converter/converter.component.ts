@@ -69,7 +69,7 @@ export class ConverterComponent implements OnInit {
     // //const pdfName = 'your_pdf_file';
     // FileSaver.saveAs(pdfUrl, pdfName);
     var blob = new Blob([this.sas], {type: "text/plain;charset=utf-8"});
-    FileSaver.saveAs(blob, "code.sas");
+    FileSaver.saveAs(blob, "code.sas7bdat");
 
   }
   downloadpython() {
