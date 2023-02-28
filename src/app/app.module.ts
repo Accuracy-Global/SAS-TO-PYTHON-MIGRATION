@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { CodeEditorModule } from '@ngstack/code-editor';
+import { MonacoEditorModule } from 'ngx-monaco-editor';
 
 import { ConverterComponent } from './converter/converter.component';
 
@@ -23,6 +24,7 @@ import { ConverterComponent } from './converter/converter.component';
     FormsModule,
     HttpClientModule,
     CodeEditorModule.forRoot(),
+    MonacoEditorModule.forRoot(),
   ],
   providers: [
     {

@@ -8,20 +8,20 @@ import { Observable } from 'rxjs';
 })
 export class HttpService {
 
-  private apiAppConvert = environment.api + 'login';
+  private apiAppConvert = environment.api + 'saspy';
 
   constructor(private http: HttpClient) { }
 
   postAppconvert(Data): Observable<any> {
-    let requestData = {};
-    requestData = {
-      Username:Data.username,
-      Password:Data.password
+    // let requestData = {};
+    // requestData = {
+    //   Username:Data.username,
+    //   Password:Data.password
 
-      // "Username":"Admin123@gmail.com",
-      // "Password":"Accuracy@123"
-    } 
+    //   // "Username":"Admin123@gmail.com",
+    //   // "Password":"Accuracy@123"
+    // } 
 
-    return this.http.post(this.apiAppConvert, requestData);
+    return this.http.post(this.apiAppConvert, Data);
   }
 }

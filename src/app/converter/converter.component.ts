@@ -13,21 +13,20 @@ const FileSaver = require('file-saver');
   styleUrls: ['./converter.component.css']
 })
 export class ConverterComponent implements OnInit {
-
+  // proc sort data=data;
+  // by descending age income;
+  // run;
   convertform: FormGroup;
   @Input() activeTheme = 'vs';
   @Input() readOnly = false;
+  code : [];
 
   sas:any;
   python:any;
+  isShowpythoncodeeditor = true;
+  isShowpythoncode= false;
   isShowTerminalsas = false;
   isShowTerminalpython = false;
-
-  // dependencies: string[] = [
-  //   '@types/node',
-  //   '@ngstack/translate', 
-  //   '@ngstack/code-editor'
-  // ];
 
   options = {
     contextmenu: true,
@@ -36,10 +35,17 @@ export class ConverterComponent implements OnInit {
     }
   };
 
+  codeModel = {
+    language: 'typescript',
+    uri: '',
+    value: '',
+  };
+
+
+
   constructor( 
     private formBuilder: FormBuilder,
     private httpService: HttpService, 
-    // private spinner: NgxSpinnerService, 
     @Inject(Router) private router: Router
   ) { }
 
@@ -64,19 +70,11 @@ export class ConverterComponent implements OnInit {
   }
 
   downloadsas() {
-    // var pdfUrl = Url;
-    // console.log(pdfUrl);
-    // //const pdfName = 'your_pdf_file';
-    // FileSaver.saveAs(pdfUrl, pdfName);
     var blob = new Blob([this.sas], {type: "text/plain;charset=utf-8"});
     FileSaver.saveAs(blob, "code.sas7bdat");
 
   }
   downloadpython() {
-    // var pdfUrl = Url;
-    // console.log(pdfUrl);
-    // //const pdfName = 'your_pdf_file';
-    // FileSaver.saveAs(pdfUrl, pdfName);
     var blob = new Blob([this.python], {type: "text/plain;charset=utf-8"});
     FileSaver.saveAs(blob, "code.py");
 
@@ -87,27 +85,33 @@ export class ConverterComponent implements OnInit {
   showTerminalpython(){
     this.isShowTerminalpython = true;
   }
+  showEditorpython(){
+    this.isShowpythoncodeeditor = true;
+    this.isShowpythoncode = false;
+  }
+  showcodepython(){
+    this.isShowpythoncodeeditor = false;
+    this.isShowpythoncode = true;
+  }
   converterFormSubmit(model: FormGroup) {
     // this.spinner.show();
     model.value.sas = this.sas;
-    // console.log(model.value.sas);
     model.value.python = this.python;
-    // console.log(model.value.python);
 
     const formData = new FormData();
-    formData.append('sas', this.sas);
-    formData.append('python', this.python);
-    
+    formData.append('args', this.sas);
+    // formData.append('python', this.python);
     this.httpService.postAppconvert(formData).subscribe(response => {
-      
-      // this.Getderpage();
+
       console.log(response);
-      // this.spinner.hide();
-      swal.fire(
-        'Success',
-        'Code converted Successfully',
-        'success'
-      )
+      let input = response['data'];
+      let output = input.replace(/<[^>]+>/g, '');
+      console.log(output);
+      this.code = response['data'];
+      this.codeModel.value = output;
+      this.isShowpythoncodeeditor = false;
+      this.isShowpythoncode = true;
+      this.showcodepython();
     },
     error => {
       if (error.status === 403) {
