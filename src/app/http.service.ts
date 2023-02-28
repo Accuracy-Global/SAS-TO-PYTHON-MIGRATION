@@ -9,19 +9,26 @@ import { Observable } from 'rxjs';
 export class HttpService {
 
   private apiAppConvert = environment.api + 'saspy';
+  private apiAppRunOutputsas = environment.api + 'run_sas';
+  private apiAppRunOutputpython = environment.api + 'run_python';
 
   constructor(private http: HttpClient) { }
 
   postAppconvert(Data): Observable<any> {
-    // let requestData = {};
-    // requestData = {
-    //   Username:Data.username,
-    //   Password:Data.password
-
-    //   // "Username":"Admin123@gmail.com",
-    //   // "Password":"Accuracy@123"
-    // } 
 
     return this.http.post(this.apiAppConvert, Data);
   }
+
+  postAppRunOutputsas(Data): Observable<any> {
+
+    return this.http.post(this.apiAppRunOutputsas, Data);
+  }
+
+  postAppRunOutputpython(Data): Observable<any> {
+
+    return this.http.post(this.apiAppRunOutputpython, Data);
+  }
+
+
+
 }

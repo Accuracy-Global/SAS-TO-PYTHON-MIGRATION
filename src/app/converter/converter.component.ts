@@ -81,9 +81,46 @@ export class ConverterComponent implements OnInit {
   }
   showTerminalsas(){
     this.isShowTerminalsas = true;
+
+    // const formData = new FormData();
+    // formData.append('args', this.sas);
+    // // formData.append('python', this.python);
+    // this.httpService.postAppRunOutputsas(formData).subscribe(response => {
+
+    //   console.log(response);
+    // },
+    // error => {
+    //   if (error.status === 403) {
+    //     // this.spinner.hide();
+    //     swal.fire(
+    //       'Not Success',
+    //       'Failed',
+    //       'error'
+    //     )
+    //   }
+    // });
+    
   }
   showTerminalpython(){
     this.isShowTerminalpython = true;
+
+    // const formData = new FormData();
+    // // formData.append('args', this.sas);
+    // formData.append('python', this.python);
+    // this.httpService.postAppRunOutputpython(formData).subscribe(response => {
+
+    //   console.log(response);
+    // },
+    // error => {
+    //   if (error.status === 403) {
+    //     // this.spinner.hide();
+    //     swal.fire(
+    //       'Not Success',
+    //       'Failed',
+    //       'error'
+    //     )
+    //   }
+    // });
   }
   showEditorpython(){
     this.isShowpythoncodeeditor = true;
@@ -125,6 +162,50 @@ export class ConverterComponent implements OnInit {
     });
     
   }
+
+  // runOutputsas() {
+
+  //   const formData = new FormData();
+  //   formData.append('args', this.sas);
+  //   // formData.append('python', this.python);
+  //   this.httpService.postAppRunOutputsas(formData).subscribe(response => {
+
+  //     console.log(response);
+  //   },
+  //   error => {
+  //     if (error.status === 403) {
+  //       // this.spinner.hide();
+  //       swal.fire(
+  //         'Not Success',
+  //         'Failed',
+  //         'error'
+  //       )
+  //     }
+  //   });
+    
+  // }
+
+  // runOutputpython() {
+  //   // this.spinner.show();
+  //   const formData = new FormData();
+  //   // formData.append('args', this.sas);
+  //   formData.append('python', this.python);
+  //   this.httpService.postAppRunOutputpython(formData).subscribe(response => {
+
+  //     console.log(response);
+  //   },
+  //   error => {
+  //     if (error.status === 403) {
+  //       // this.spinner.hide();
+  //       swal.fire(
+  //         'Not Success',
+  //         'Failed',
+  //         'error'
+  //       )
+  //     }
+  //   });
+    
+  // }
 
 
 
