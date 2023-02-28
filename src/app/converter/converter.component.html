@@ -53,8 +53,12 @@
                       <p style="margin-bottom: 2px;">
                         SAS Output
                       </p>
+
+                      <div [innerHTML]="sascode">
+
+                      </div>
                      
-                      <!-- <p>hi</p> -->
+                      <!-- <p>{{sascode}}</p> -->
                     </div>
                   </div>
                 </div>
@@ -120,7 +124,10 @@
                       <p style="margin-bottom: 2px;">
                         Python Output
                       </p>
-              
+                      <div [innerHTML]="pythoncode">
+
+                      </div>
+                      <!-- <p>{{pythoncode}}</p> -->
                       <!-- <p>hi</p> -->
                     </div>
                   </div>

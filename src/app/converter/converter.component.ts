@@ -19,7 +19,9 @@ export class ConverterComponent implements OnInit {
   convertform: FormGroup;
   @Input() activeTheme = 'vs';
   @Input() readOnly = false;
-  code : [];
+  code : any;
+  sascode: [];
+  pythoncode:[];
 
   sas:any;
   python:any;
@@ -88,7 +90,8 @@ export class ConverterComponent implements OnInit {
      this.httpService.postAppRunOutputsas(formData).subscribe(response => {
 
        console.log(response);
-     },
+       this.sascode = response['data'];
+    },
     error => {
        if (error.status === 403) {
         // this.spinner.hide();
@@ -106,10 +109,11 @@ export class ConverterComponent implements OnInit {
 
      const formData = new FormData();
      // formData.append('args', this.sas);
-     formData.append('python', this.python);
+     formData.append('python', this.code);
     this.httpService.postAppRunOutputpython(formData).subscribe(response => {
 
        console.log(response);
+       this.pythoncode = response['data'];
     },
     error => {
       if (error.status === 403) {
