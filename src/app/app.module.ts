@@ -11,11 +11,13 @@ import { CodeEditorModule } from '@ngstack/code-editor';
 import { MonacoEditorModule } from 'ngx-monaco-editor';
 
 import { ConverterComponent } from './converter/converter.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConverterComponent
+    ConverterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
