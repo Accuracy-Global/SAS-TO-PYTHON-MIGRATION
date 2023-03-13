@@ -32,8 +32,8 @@ export class ConverterComponent implements OnInit {
 
   sas:any;
   python:any;
-  isShowpythoncodeeditor = false;
-  isShowpythoncode= true;
+  isShowpythoncodeeditor = true;
+  isShowpythoncode= false;
   isShowTerminalsas = false;
   isShowTerminalpython = false;
 
@@ -43,15 +43,7 @@ export class ConverterComponent implements OnInit {
     language: "typescript",
     uri: "main.ts",
     value:  [
-      `import { TranslateModule, TranslateService } from '@ngstack/translate';`,
-      `import { CodeEditorModule } from '@ngstack/code-editor';`,
-      `import * as fs from 'fs';`,
-      '',
-      `export class MyClass {`,
-      `  constructor(translate: TranslateService) {`,
-      '',
-      '  }',
-      `}`
+      
     ].join('\n'),
 };
 
@@ -130,7 +122,7 @@ export class ConverterComponent implements OnInit {
 
      const formData = new FormData();
      // formData.append('args', this.sas);
-     formData.append('args', this.python);
+     formData.append('args', this.codeModel.value);
     this.httpService.postAppRunOutputpython(formData).subscribe(response => {
 
        console.log(response);
