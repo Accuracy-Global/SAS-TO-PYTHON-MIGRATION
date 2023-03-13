@@ -16,6 +16,13 @@ export class ConverterComponent implements OnInit {
   // proc sort data=data;
   // by descending age income;
   // run;
+
+
+  //   proc import datafile='cars.csv'
+  // out=data
+  // dbms =csv
+  // replace;
+  // run;
   convertform: FormGroup;
   @Input() activeTheme = 'vs';
   @Input() readOnly = false;
@@ -25,10 +32,28 @@ export class ConverterComponent implements OnInit {
 
   sas:any;
   python:any;
-  isShowpythoncodeeditor = true;
-  isShowpythoncode= false;
+  isShowpythoncodeeditor = false;
+  isShowpythoncode= true;
   isShowTerminalsas = false;
   isShowTerminalpython = false;
+
+  theme = 'vs-dark';
+
+  codeModel = {
+    language: "typescript",
+    uri: "main.ts",
+    value:  [
+      `import { TranslateModule, TranslateService } from '@ngstack/translate';`,
+      `import { CodeEditorModule } from '@ngstack/code-editor';`,
+      `import * as fs from 'fs';`,
+      '',
+      `export class MyClass {`,
+      `  constructor(translate: TranslateService) {`,
+      '',
+      '  }',
+      `}`
+    ].join('\n'),
+};
 
   options = {
     contextmenu: true,
@@ -37,13 +62,9 @@ export class ConverterComponent implements OnInit {
     }
   };
 
-  codeModel = {
-    language: 'typescript',
-    uri: '',
-    value: '',
-  };
-
-
+  onCodeChanged(value) {
+    console.log('CODE', value);
+  }
 
   constructor( 
     private formBuilder: FormBuilder,
@@ -86,7 +107,7 @@ export class ConverterComponent implements OnInit {
 
      const formData = new FormData();
      formData.append('args', this.sas);
-    // // formData.append('python', this.python);
+    // formData.append('python', this.python);
      this.httpService.postAppRunOutputsas(formData).subscribe(response => {
 
        console.log(response);
@@ -136,6 +157,8 @@ export class ConverterComponent implements OnInit {
   }
   converterFormSubmit(model: FormGroup) {
     // this.spinner.show();
+    this.showcodepython();
+      this.codeModel.value = '';
     model.value.sas = this.sas;
     model.value.python = this.python;
 
@@ -143,16 +166,19 @@ export class ConverterComponent implements OnInit {
     formData.append('args', this.sas);
     // formData.append('python', this.python);
     this.httpService.postAppconvert(formData).subscribe(response => {
-
+      
       console.log(response);
-      let input = response['data'];
-      let output = input.replace(/<[^>]+>/g, '');
-      console.log(output);
-      this.code = response['data'];
-      this.codeModel.value = output;
-      this.isShowpythoncodeeditor = false;
-      this.isShowpythoncode = true;
-      this.showcodepython();
+      // let input = response['data'];
+      // let output = input.replace(/<[^>]+>/g, '');
+      // console.log(output);
+      this.codeModel.value = response['data'];
+      // this.codeModel.value = `import pandas as pd \n data = pd.read_csv('cars.csv')`
+      console.log("this.codeModel ============ ", this.codeModel);
+      // this.code = response['data'];
+      // this.codeModel.value = output;
+      // this.isShowpythoncodeeditor = false;
+      // this.isShowpythoncode = true;
+      this.showEditorpython();
     },
     error => {
       if (error.status === 403) {
