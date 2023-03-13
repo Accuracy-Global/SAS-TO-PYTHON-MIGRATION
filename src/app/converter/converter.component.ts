@@ -109,7 +109,7 @@ export class ConverterComponent implements OnInit {
 
      const formData = new FormData();
      // formData.append('args', this.sas);
-     formData.append('python', this.code);
+     formData.append('args', this.python);
     this.httpService.postAppRunOutputpython(formData).subscribe(response => {
 
        console.log(response);

@@ -10,7 +10,7 @@ export class HttpService {
 
   private apiAppConvert = environment.api + 'saspy';
   private apiAppRunOutputsas = environment.api + 'run_sas';
-  private apiAppRunOutputpython = environment.api + 'run_python';
+  private apiAppRunOutputpython = environment.api + 'python_compiler';
 
   constructor(private http: HttpClient) { }
 
