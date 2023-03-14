@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   loginFormSubmit(model: FormGroup) {
     // debugger;
 
-    this.httpService.postApplogin(model).subscribe(response => {
+    this.httpService.postApplogin(model.value).subscribe(response => {
       
       console.log(response);
       swal.fire(
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         'success'
       )
       // this.spinner.hide();
-      this.router.navigate(["login"]);
+      this.router.navigate(["converter"]);
       
     },
     error => {
