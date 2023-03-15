@@ -31,17 +31,41 @@ export class LoginComponent implements OnInit {
 
   loginFormSubmit(model: FormGroup) {
     // debugger;
+    // model.value.sas = this.sas;
+    // model.value.python = this.python;
 
-    this.httpService.postApplogin(model.value).subscribe(response => {
+    const formData = new FormData();
+    formData.append('email', model.value.email);
+    formData.append('password', model.value.password);
+    
+
+    this.httpService.postApplogin(formData).subscribe(response => {
       
       console.log(response);
-      swal.fire(
-        'Success',
-        'Login Successfully',
-        'success'
-      )
-      // this.spinner.hide();
-      this.router.navigate(["converter"]);
+      if (response.status == true) {
+        swal.fire(
+          'Success',
+          'Login Successfully',
+          'success'
+        )
+        // this.spinner.hide();
+        this.router.navigate(["converter"]);
+      } else {
+        // this.spinner.hide();
+        swal.fire(
+          'Not Success',
+          'Login Failed',
+          'error'
+        )
+      }
+      // status
+      // swal.fire(
+      //   'Success',
+      //   'Login Successfully',
+      //   'success'
+      // )
+      // // this.spinner.hide();
+      // this.router.navigate(["converter"]);
       
     },
     error => {
