@@ -12,6 +12,7 @@ export class HttpService {
   private apiAppRunOutputsas = environment.api + 'run_sas';
   private apiAppRunOutputpython = environment.api + 'python_compiler';
   private apiAppLogin = environment.api + 'login';
+  private apiAppRegister = environment.api + 'register';
 
   constructor(private http: HttpClient) { }
 
@@ -24,6 +25,12 @@ export class HttpService {
 
     return this.http.post(this.apiAppLogin, Data);
   }
+
+  postAppregister(Data): Observable<any> {
+
+    return this.http.post(this.apiAppRegister, Data);
+  }
+
 
   postAppRunOutputsas(Data): Observable<any> {
 

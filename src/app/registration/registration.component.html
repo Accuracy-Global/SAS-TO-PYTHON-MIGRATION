@@ -11,20 +11,20 @@
                 <div class="row">
                     <h2>Sign Up</h2>
                 </div>
-                <form  >
+                <form [formGroup]="registerform" (ngSubmit)="registerFormSubmit(registerform)" >
                     <div class="form-group">
                         <div class="col-12">
-                            <input type="text" name="name" id="name" class="form__input" placeholder="Name" formControlName="name">
+                            <input type="text" name="name" id="name" class="form__input" placeholder="Name" formControlName="name" formControlName="username">
                         </div>
                         <div class="col-12">
-                            <input type="email" name="email" id="email" class="form__input" placeholder="Email" formControlName="email">
+                            <input type="email" name="email" id="email" class="form__input" placeholder="Email" formControlName="email" formControlName="email">
                         </div>
                         <div class="col-12">
-                            <input type="number" id="typeNumber" placeholder="Contact Number" class="form__input" />
+                            <input type="number" id="typeNumber" placeholder="Contact Number" class="form__input" formControlName="contact"/>
                         </div>
                         <div class="col-12">
-                            <select class="form__input" aria-label="Default select example">
-                                <option selected>Select Country</option>
+                            <select class="form__input" formControlName="country" aria-label="Default select example">
+                                <option selected value="">Select Country</option>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
                                 <option value="Algeria">Algeria</option>
