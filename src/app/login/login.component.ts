@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
           'success'
         )
         // this.spinner.hide();
-        this.router.navigate(["converter"]);
+        this.router.navigate(["dashboard"]);
       } else {
         // this.spinner.hide();
         swal.fire(
