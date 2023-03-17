@@ -13,13 +13,17 @@ import { MonacoEditorModule } from 'ngx-monaco-editor';
 import { ConverterComponent } from './converter/converter.component';
 import { LoginComponent } from './login/login.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConverterComponent,
     LoginComponent,
-    AdmindashboardComponent
+    AdmindashboardComponent,
+    RegistrationComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

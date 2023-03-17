@@ -51,7 +51,7 @@ form{
 	padding: 1em .5em .5em;
 	padding-left: .5em;
 	outline:none;
-	margin:1.5em auto;
+	margin:0.5em auto;
 	transition: all .5s ease;
 }
 .form__input:focus{
@@ -73,32 +73,4 @@ form{
 .btn:hover, .btn:focus{
 	background-color: #34ba08;;
 	color:#fff;
-}
-
-
-
-
-
-  
-  .justify {
-    text-align: justify;
-  }
-  
-  .text-purple {
-    color: var(--primary);
-  }
-  
-  .bg-purple {
-    background-color: var(--primary);
-    color: white;
-  }
-.lead{
-	font-size: 1.0rem !important;
-    font-weight: 400 !important;
-}
-  @media (min-width: 992px){
-.col5width {
-    flex: 0 0 auto;
-    width: 20% !important;
-}
 }
