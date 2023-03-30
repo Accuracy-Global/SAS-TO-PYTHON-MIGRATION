@@ -1,0 +1,31 @@
+body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  :root {
+    --primary: #94618e;
+  }
+  
+  .justify {
+    text-align: justify;
+  }
+  
+  .text-purple {
+    color: var(--primary);
+  }
+  
+  .bg-purple {
+    background-color: var(--primary);
+    color: white;
+  }
+
+.lead{
+	font-size: 1.0rem !important;
+    font-weight: 400 !important;
+}
+  @media (min-width: 992px){
+.col5width {
+    flex: 0 0 auto;
+    width: 20% !important;
+}
+}
