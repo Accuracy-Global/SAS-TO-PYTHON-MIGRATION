@@ -34,8 +34,8 @@ export class ConverterComponent implements OnInit {
   python:any;
   isShowpythoncodeeditor = true;
   isShowpythoncode= false;
-  isShowTerminalsas = false;
-  isShowTerminalpython = false;
+  isShowTerminalsas = true;
+  isShowTerminalpython = true;
 
   theme = 'vs-dark';
 
