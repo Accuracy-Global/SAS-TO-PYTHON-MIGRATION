@@ -8,17 +8,24 @@ import { Observable } from 'rxjs';
 })
 export class HttpService {
 
-  private apiAppConvert = environment.api + 'saspy';
+  private apiAppConvert = environment.api + 'convert';
   private apiAppRunOutputsas = environment.api + 'run_sas';
   private apiAppRunOutputpython = environment.api + 'python_compiler';
   private apiAppLogin = environment.api + 'login';
   private apiAppRegister = environment.api + 'register';
+  private apiAppsasfileupload = environment.api + 'upload';
 
   constructor(private http: HttpClient) { }
 
   postAppconvert(Data): Observable<any> {
 
     return this.http.post(this.apiAppConvert, Data);
+  }
+
+  postsasfileupload(Data): Observable<any> {
+    console.log(Data,"file");
+
+    return this.http.post(this.apiAppsasfileupload, Data);
   }
 
   postApplogin(Data): Observable<any> {

@@ -29,9 +29,11 @@ export class ConverterComponent implements OnInit {
   code : any;
   sascode: [];
   pythoncode:[];
+  sasmultiplefile = [];
 
   sas:any;
   python:any;
+  formData = new FormData();
   isShowpythoncodeeditor = true;
   isShowpythoncode= false;
   isShowTerminalsas = false;
@@ -94,6 +96,21 @@ export class ConverterComponent implements OnInit {
     FileSaver.saveAs(blob, "code.py");
 
   }
+
+  multiplefilesas(event) {
+
+    if (event.target.files.length > 0) {
+      this.sasmultiplefile = event.target.files;
+      console.log(this.sasmultiplefile, "file")
+      // const formData = new FormData();
+      for (let file of this.sasmultiplefile) {
+       
+        this.formData.append('file', file);
+      }
+    }
+
+  } 
+
   showTerminalsas(){
     this.isShowTerminalsas = true;
 
@@ -155,7 +172,7 @@ export class ConverterComponent implements OnInit {
     model.value.python = this.python;
 
     const formData = new FormData();
-    formData.append('args', this.sas);
+    formData.append('ProcCodes', this.sas);
     // formData.append('python', this.python);
     this.httpService.postAppconvert(formData).subscribe(response => {
       
@@ -183,6 +200,29 @@ export class ConverterComponent implements OnInit {
       }
     });
     
+  }
+
+  sasfileupload() {
+    // const formData = new FormData();
+    // for (let file of this.sasmultiplefile) {
+       
+    //   formData.append('file', file);
+    // }
+
+    this.httpService.postsasfileupload(this.formData).subscribe(response => {
+      
+      console.log(response);
+    },
+    error => {
+      if (error.status === 403) {
+        // this.spinner.hide();
+        swal.fire(
+          'Not Success',
+          'Failed',
+          'error'
+        )
+      }
+    });
   }
 
   // runOutputsas() {
