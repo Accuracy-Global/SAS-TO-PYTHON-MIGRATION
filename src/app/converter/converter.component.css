@@ -4,8 +4,8 @@
     min-height: 100%;
 } */
 ::ng-deep ngs-code-editor .editor {
-    height: 250px !important;
-    min-height: 250% !important;
+    height: 400px !important;
+    min-height: 400% !important;
 }
 
 /* ::ng-deep ngx-monaco-editor {
