@@ -31,6 +31,9 @@ export class ConverterComponent implements OnInit {
   pythoncode:[];
   sasmultiplefile = [];
 
+  sasFileName = "";
+  sasFileArr = [];
+
   sas:any;
   python:any;
   formData = new FormData();
@@ -103,17 +106,20 @@ export class ConverterComponent implements OnInit {
     FileSaver.saveAs(blob, "code.sas7bdat");
 
   }
-  downloadpython() {
-    var blob = new Blob([this.python], {type: "text/plain;charset=utf-8"});
-    FileSaver.saveAs(blob, "code.py");
-
-  }
+  
 
   multiplefilesas(event) {
 
     if (event.target.files.length > 0) {
       this.sasmultiplefile = event.target.files;
       console.log(this.sasmultiplefile, "file")
+      // console.log(event.target.files[0], "file name");
+
+      this.sasFileName = event.target.files[0].name;
+      this.sasFileArr = this.sasFileName.split('.'); 
+    this.sasFileName = this.sasFileArr[0]; 
+    console.log("this.fileName = ", this.sasFileName);
+      // localStorage.setItem("filename", this.sasFileName);
       // const formData = new FormData();
       for (let file of this.sasmultiplefile) {
        
@@ -248,6 +254,13 @@ export class ConverterComponent implements OnInit {
         )
       }
     });
+  }
+
+  downloadpython() {
+    // var filename = localStorage.getItem("filename")
+    var blob = new Blob([this.codeModel.value], {type: "text/plain;charset=utf-8"});
+    FileSaver.saveAs(blob, this.sasFileName+".py");
+
   }
 
   // runOutputsas() {
