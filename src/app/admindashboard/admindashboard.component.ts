@@ -82,11 +82,11 @@ export class AdmindashboardComponent implements OnInit {
     this.chart = new Chart("canvas", {
       type: "bar",
       data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["Total Script", "Simple Script", "Complex Script", "medium Script"],
         datasets: [
           {
-            label: "# of Votes",
-            data: [12, 19, 3, 5, 2, 3],
+            label: "# of Scripts",
+            data: [12, 19, 3, 5],
             backgroundColor: "rgba(255, 99, 132,0.4)",
             borderColor: "rgb(255, 99, 132)",
             borderWidth: 1
