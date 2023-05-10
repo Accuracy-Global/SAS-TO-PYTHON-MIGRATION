@@ -6,77 +6,47 @@ import { Chart } from 'chart.js';
   templateUrl: './admindashboard.component.html',
   styleUrls: ['./admindashboard.component.css']
 })
-export class AdmindashboardComponent implements OnInit {
+export class AdmindashboardComponent implements OnInit { 
 
   constructor() { }
-  @ViewChild('mychart') mychart;
-  canvas: any;
-  ctx: any;
+  // @ViewChild('mychart') mychart;
+  // canvas: any;
+  // canvas1: any;
+  // ctx: any;
   public chart: Chart;
+  public schedular_chart: Chart;
 
   ngAfterViewInit() {
-    this.canvas = this.mychart.nativeElement; 
-    this.ctx = this.canvas.getContext('2d');
+    // this.canvas = this.mychart.nativeElement;
+    // this.canvas1 = this.mychart.nativeElement; 
+    // this.ctx = this.canvas.getContext('2d');
 
-    let myChart = new Chart(this.ctx, {
-      type: 'line',
-      
-      data: {
-        datasets: [{
-          label: 'Week',
-          backgroundColor: "rgba(255, 99, 132,0.4)",
-          borderColor: "rgb(255, 99, 132)",
-          fill: true,
-          data: [
-            { x: 1, y: 2 },
-            { x: 2, y: 2.5 },
-            { x: 3, y: 5 },
-            { x: 4, y: 4.75 },
-            { x: 5, y: 4.75 },
-            { x: 6, y: 6 },
-            { x: 7, y: 9 },
-            { x: 8, y: 6 },
-          ],
-        }]
-      },
-      options: {
-        responsive: true,
-        title: {
-          display: true,
-          text: 'Sheduler Chart'
-        },
-        scales: {
-          xAxes: [{
-            type: 'linear',
-            position: 'bottom',
-            ticks: {
-              userCallback: function (tick) {
-                // if (tick >= 1000) {
-                //   return (tick / 1000).toString() + 'km';
-                // }
-                return tick.toString() + ' Week';
-              }
-            },
-            scaleLabel: {
-              labelString: 'Weeks',
-              display: true,
-            }
-          }],
-          yAxes: [{
-            type: 'linear',
-            ticks: {
-              userCallback: function (tick) {
-                return tick.toString() + 'm';
-              }
-            },
-            scaleLabel: {
-              labelString: 'Task',
-              display: true
-            }
-          }]
-        }
-      }
-    });
+    // let myChart = new Chart("canvas_schedular_chart", {
+    //   type: "bar",
+    //   data: {
+    //     labels: ["Total Script", "Simple Script", "Complex Script", "medium Script"],
+    //     datasets: [
+    //       {
+    //         label: "# of Scripts",
+    //         data: [12, 19, 3, 5],
+    //         backgroundColor: "rgba(255, 99, 132,0.4)",
+    //         borderColor: "rgb(255, 99, 132)",
+    //         borderWidth: 1
+    //       }
+    //     ]
+    //   },
+    //   options: {
+    //     scales: {
+    //       yAxes: [
+    //         {
+    //           ticks: {
+    //             beginAtZero: true
+    //           }
+    //         }
+    //       ]
+    //     }
+    //   }
+    // });
   }
   ngOnInit(): void {
     this.chart = new Chart("canvas", {
@@ -98,6 +68,35 @@ export class AdmindashboardComponent implements OnInit {
           yAxes: [
             {
               ticks: {
+                beginAtZero: true
+              }
+            }
+          ]
+        }
+      }
+    });
+
+    this.schedular_chart = new Chart("schedular_canvas", {
+      type: "bar",
+      data: {
+        labels: ["Task 1", "Task 2", "Task 3", "Task 4"],
+        datasets: [
+          {
+            label: "# of Week",
+            data: [12, 19, 3, 5],
+            backgroundColor: "rgba(255, 99, 132,0.4)",
+            borderColor: "rgb(255, 99, 132)",
+            borderWidth: 1
+          }
+        ]
+      },
+      options: {
+        scales: {
+          yAxes: [
+            {
+              label : 'Weeks',
+              ticks: {
+                
                 beginAtZero: true
               }
             }
