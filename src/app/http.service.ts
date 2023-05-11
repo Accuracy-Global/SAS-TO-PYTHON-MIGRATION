@@ -15,6 +15,9 @@ export class HttpService {
   private apiAppRegister = environment.api + 'register';
   private apiAppsasfileupload = environment.api + 'upload';
 
+  private apiAppsasgetscriptlist = environment.api + 'get_script_list';
+  private apiAppsasgetscriptinfo = environment.api + 'get_script_info';
+
   constructor(private http: HttpClient) { }
 
   postAppconvert(Data): Observable<any> {
@@ -49,6 +52,20 @@ export class HttpService {
     return this.http.post(this.apiAppRunOutputpython, Data);
   }
 
+  postAppgetscriptlist(Data): Observable<any> {
+
+    return this.http.post(this.apiAppsasgetscriptlist, Data);
+  }
+
+  postAppgetscriptinfo(Data): Observable<any> {
+
+    let requestData = {};
+    requestData = {
+      script_name:Data,
+    } 
+
+    return this.http.post(this.apiAppsasgetscriptinfo, requestData);
+  }
 
 
 }

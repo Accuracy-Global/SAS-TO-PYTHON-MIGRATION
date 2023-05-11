@@ -17,14 +17,15 @@
       <div class="col-3 form-group" style="float: right;align-self: end;margin-bottom: 8px;">
         <!-- <label>Filter</label> -->
         
-        <select class="form-control">
-          
-          <option value="">Select option</option>
-          <option value="1">1 SCRIPTS</option>
-          <option value="3">3 SCRIPTS</option>
-          <option value="6">6 SCRIPTS</option>
-          
-        </select>
+        <ng-multiselect-dropdown
+          [placeholder]="'Filter'"
+          [settings]="dropdownSettings"
+          [data]="dropdownList"
+          [(ngModel)]="selectedItems"
+          (onSelect)="onItemSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+        >
+        </ng-multiselect-dropdown>
       </div>
     </div>
   <div class="row">
@@ -35,7 +36,7 @@
       <div class="card-body">
         <p class="card-title lead ">NO. OF SAS SCRIPTS</p>
         <hr />
-        <h2>1</h2>
+        <h2>{{No_of_sas_Variables}}</h2>
         
       </div>
     </div>
@@ -50,7 +51,7 @@
         
           <p class="card-title lead text-uppercase">No of macro variables</p>
           <hr />
-          <h2>2</h2>
+          <h2>{{No_of_macros}}</h2>
         </div>
       </div>
     </a>
@@ -63,7 +64,7 @@
         <div class="card-body">
           <p class="card-title lead text-uppercase">No of macros</p>
           <hr />
-          <h2>3</h2>
+          <h2>{{No_of_macros}}</h2>
          
         </div>
       </div>
@@ -76,7 +77,7 @@
         <div class="card-body">
           <p class="card-title lead text-uppercase">No of procs</p>
           <hr />
-          <h2>4</h2>
+          <h2>{{No_of_procs}}</h2>
         </div>
       </div>
     </a>
@@ -88,7 +89,7 @@
       <div class="card-body">
         <p class="card-title lead text-white text-uppercase">TOTAL NO. OF LINES</p>
         <hr class="text-white"/>
-        <h2 class="text-white">5</h2>
+        <h2 class="text-white">{{No_Of_Lines}}</h2>
       </div>
     </div>
   </a>
@@ -100,7 +101,7 @@
       <div class="card-body">
         <p class="card-title lead text-white text-uppercase">No of procs sql</p>
         <hr class="text-white"/>
-        <h2 class="text-white">6</h2>
+        <h2 class="text-white">{{No_Of_Proc_Sql}}</h2>
       </div>
     </div>
   </a>
@@ -111,7 +112,7 @@
         <div class="card-body">
           <p class="card-title lead text-white text-uppercase">No of Datasteps</p>
           <hr class="text-white"/>
-          <h2 class="text-white">7</h2>
+          <h2 class="text-white">{{No_Of_Datasteps}}</h2>
         </div>
       </div>
     </a>
@@ -122,7 +123,7 @@
         <div class="card-body">
           <p class="card-title lead text-white text-uppercase">no of Statements</p>
           <hr class="text-white"/>
-          <h2 class="text-white">8</h2>
+          <h2 class="text-white">{{No_Of_Statements}}</h2>
         </div>
       </div>
     </a>

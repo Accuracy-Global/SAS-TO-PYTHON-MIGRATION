@@ -17,14 +17,15 @@
       <div class="col-3 form-group" style="float: right;align-self: end;margin-bottom: 8px;">
         <!-- <label>Filter</label> -->
         
-        <select class="form-control">
-          
-          <option value="">Select option</option>
-          <option value="1">1 SCRIPTS</option>
-          <option value="3">3 SCRIPTS</option>
-          <option value="6">6 SCRIPTS</option>
-          
-        </select>
+        <ng-multiselect-dropdown
+          [placeholder]="'Filter'"
+          [settings]="dropdownSettings"
+          [data]="dropdownList"
+          [(ngModel)]="selectedItems"
+          (onSelect)="onItemSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+        >
+        </ng-multiselect-dropdown>
       </div>
     </div>
 
