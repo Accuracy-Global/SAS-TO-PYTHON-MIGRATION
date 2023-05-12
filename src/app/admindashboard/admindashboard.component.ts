@@ -1,4 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpService } from '../http.service';
+import { Router } from '@angular/router';
+// import { NgxSpinnerService } from 'ngx-spinner';
+import swal from 'sweetalert2';
 import { Chart, ChartType, ChartOptions, ChartDataSets  } from 'chart.js';
 // import { Label, BaseChartDirective } from 'ng2-charts';
 
@@ -10,7 +15,16 @@ import { Chart, ChartType, ChartOptions, ChartDataSets  } from 'chart.js';
 })
 export class AdmindashboardComponent implements OnInit { 
 
-  constructor() { 
+  Total_script= 0 ;
+  complex_script= 0 ;
+  medium_script= 0 ;
+  simple_script= 0 ;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private httpService: HttpService, 
+    @Inject(Router) private router: Router
+  ) { 
     
 
   }
@@ -54,6 +68,8 @@ export class AdmindashboardComponent implements OnInit {
     // });
   }
   ngOnInit(): void {
+    this.Getpwactstable();
+
     this.chart = new Chart("canvas", {
       type: "bar",
       data: {
@@ -61,7 +77,7 @@ export class AdmindashboardComponent implements OnInit {
         datasets: [
           {
             label: "# of Scripts",
-            data: [12, 19, 3, 5],
+            data: [this.Total_script, this.simple_script, this.complex_script, this.medium_script],
             backgroundColor: "rgba(255, 99, 132,0.4)",
             borderColor: "rgb(255, 99, 132)",
             borderWidth: 1
@@ -85,5 +101,30 @@ export class AdmindashboardComponent implements OnInit {
 
     
   }
+
+//   "data": {
+//     "Total_script": 6,
+//     "simple_script": 2
+//     "complex_script": 2,
+//     "medium_script": 2,
+// },
+  Getpwactstable() {
+
+    let data = []
+
+    this.httpService.getAssesmentgraph(data).subscribe(response => {
+
+      console.log(response['data']);
+
+      this.Total_script= response.data['Total_script'];
+      this.complex_script= response.data['complex_script'];
+      this.medium_script= response.data['medium_script'];
+      this.simple_script= response.data['simple_script'];
+
+      // console.log(this.Total_script);
+
+    });
+  }
+
 
 }

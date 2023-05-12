@@ -17,6 +17,7 @@ export class HttpService {
 
   private apiAppsasgetscriptlist = environment.api + 'get_script_list';
   private apiAppsasgetscriptinfo = environment.api + 'get_script_info';
+  private apiAppgetassesmentgraph = environment.api + 'assesment_graph';
 
   constructor(private http: HttpClient) { }
 
@@ -67,5 +68,13 @@ export class HttpService {
     return this.http.post(this.apiAppsasgetscriptinfo, requestData);
   }
 
+  // getAssesmentgraph(): Observable<any> {
+
+  //   return this.http.get(this.apiAppgetassesmentgraph);
+  // }
+  getAssesmentgraph(Data): Observable<any> {
+
+    return this.http.post(this.apiAppgetassesmentgraph,Data);
+  }
 
 }
