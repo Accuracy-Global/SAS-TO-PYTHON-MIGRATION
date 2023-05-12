@@ -14,7 +14,12 @@
     </div>
     <div class="col-3 form-group" style="float: right;align-self: end;margin-bottom: 8px;">
       <!-- <label>Filter</label> -->
-      
+      <!-- (onFilterChange)="onFilterChange($event)"
+      (onDropDownClose)="onDropDownClose($event)"
+      (onSelect)="onItemSelect($event)" 
+      (onDeSelect)="onDeSelect($event)"
+      (onSelectAll)="onSelectAll($event)"
+      (onDeSelectAll)="onDeSelectAll($event)" -->
       <ng-multiselect-dropdown
         [placeholder]="'Filter'"
         [settings]="dropdownSettings"
@@ -22,6 +27,7 @@
         [(ngModel)]="selectedItems"
         (onSelect)="onItemSelect($event)"
         (onSelectAll)="onSelectAll($event)"
+        (onFilterChange)="onItemSelect($event)"
       >
       </ng-multiselect-dropdown>
     </div>
