@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Chart } from 'chart.js';
+import { Chart, ChartType, ChartOptions, ChartDataSets  } from 'chart.js';
+// import { Label, BaseChartDirective } from 'ng2-charts';
+
 
 @Component({
   selector: 'app-admindashboard',
@@ -14,8 +16,8 @@ export class AdmindashboardComponent implements OnInit {
   // canvas1: any;
   // ctx: any;
   public chart: Chart;
-  public schedular_chart: Chart;
-
+  // public schedular_chart: Chart;
+ 
   ngAfterViewInit() {
     // this.canvas = this.mychart.nativeElement;
     // this.canvas1 = this.mychart.nativeElement; 
@@ -76,34 +78,9 @@ export class AdmindashboardComponent implements OnInit {
       }
     });
 
-    this.schedular_chart = new Chart("schedular_canvas", {
-      type: "bar",
-      data: {
-        labels: ["Task 1", "Task 2", "Task 3", "Task 4"],
-        datasets: [
-          {
-            label: "# of Week",
-            data: [12, 19, 3, 5],
-            backgroundColor: "rgba(255, 99, 132,0.4)",
-            borderColor: "rgb(255, 99, 132)",
-            borderWidth: 1
-          }
-        ]
-      },
-      options: {
-        scales: {
-          yAxes: [
-            {
-              label : 'Weeks',
-              ticks: {
-                
-                beginAtZero: true
-              }
-            }
-          ]
-        }
-      }
-    });
+    
+
+    
   }
 
 }
