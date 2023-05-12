@@ -15,16 +15,17 @@
         <h4 class="mt-5">Macros Summary</h4>
       </div>
       <div class="col-3 form-group" style="float: right;align-self: end;margin-bottom: 8px;">
-        <!-- <label>Filter</label> -->
+        <ng-multiselect-dropdown
+          [placeholder]="'Filter'"
+          [settings]="dropdownSettings"
+          [data]="dropdownList"
+          [(ngModel)]="selectedItems"
+          (onSelect)="onItemSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+        >
+        </ng-multiselect-dropdown>
         
-        <select class="form-control">
-          
-          <option value="">Select option</option>
-          <option value="1">1 SCRIPTS</option>
-          <option value="3">3 SCRIPTS</option>
-          <option value="6">6 SCRIPTS</option>
-          
-        </select>
+        
       </div>
     </div>
     <div class="row">
@@ -35,7 +36,7 @@
     <div class="card-body">
       <p class="card-title lead ">DEFINING MACRO</p>
       <hr />
-      <h2>2</h2>
+      <h2>{{Difining_Macro}}</h2>
     </div>
   </div>
 </a>
@@ -47,7 +48,7 @@
     <div class="card-body">
       <p class="card-title lead text-white">DEFINING MACRO VARIABLES</p> 
       <hr class="text-white"/>
-      <h2 class="text-white">2</h2>
+      <h2 class="text-white">{{Difining_Macro_Variables}}</h2>
     </div>
   </div>
 </a>
@@ -60,7 +61,7 @@
       
       <p class="card-title lead text-white">MACRO FUN EVAL</p> 
       <hr class="text-white"/>
-      <h2 class="text-white">2</h2>
+      <h2 class="text-white">{{Macro_Fun_Eval}}</h2>
     </div>
   </div>
 </a>
@@ -72,7 +73,7 @@
       
       <p class="card-title lead text-white">MACRO GENDER CALLED</p>
        <hr class="text-white"/>
-       <h2 class="text-white">2</h2>
+       <h2 class="text-white">{{Macro_Gender_Called}}</h2>
     </div>
   </div>
 </a>
@@ -84,7 +85,7 @@
       
       <p class="card-title lead text-white">MACRO GENDER DEFINED</p>
        <hr class="text-white"/>
-       <h2 class="text-white">2</h2>
+       <h2 class="text-white">{{Macro_Gender_Defined}}</h2>
     </div>
   </div>
 </a>
@@ -96,7 +97,7 @@
       
       <p class="card-title lead text-white">MACRO LET CALLED</p>
        <hr class="text-white"/>
-       <h2 class="text-white">2</h2>
+       <h2 class="text-white">{{Macro_Let_Called}}</h2>
     </div>
   </div>
 </a>
@@ -108,7 +109,7 @@
       
       <p class="card-title lead text-white">MACRO SORT CALLED</p> 
       <hr class="text-white"/>
-      <h2 class="text-white">2</h2>
+      <h2 class="text-white">{{Macro_sort_called}}</h2>
     </div>
   </div>
 </a>
@@ -120,7 +121,7 @@
       
       <p class="card-title lead text-white">MACRO SORT DEFINED</p> 
       <hr class="text-white"/>
-      <h2 class="text-white">2</h2>
+      <h2 class="text-white">{{Macro_Sort_Defined}}</h2>
     </div>
   </div>
 </a>

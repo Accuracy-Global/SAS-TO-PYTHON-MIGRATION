@@ -17,14 +17,15 @@
       <div class="col-3 form-group" style="float: right;align-self: end;margin-bottom: 8px;">
         <!-- <label>Filter</label> -->
         
-        <select class="form-control">
-          
-          <option value="">Select option</option>
-          <option value="1">1 SCRIPTS</option>
-          <option value="3">3 SCRIPTS</option>
-          <option value="6">6 SCRIPTS</option>
-          
-        </select>
+        <ng-multiselect-dropdown
+          [placeholder]="'Filter'"
+          [settings]="dropdownSettings"
+          [data]="dropdownList"
+          [(ngModel)]="selectedItems"
+          (onSelect)="onItemSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+        >
+        </ng-multiselect-dropdown>
       </div>
     </div>
 
@@ -37,7 +38,7 @@
           <div class="card-body">
             <p class="card-title lead ">PROC MEANS</p>
            <hr /> 
-         <h2>2</h2>
+         <h2>{{Proc_Means}}</h2>
           </div>
         </div>
       </a>
@@ -49,7 +50,7 @@
           <div class="card-body">
             <p class="card-title lead text-white">PROC SORT</p>
             <hr class="text-white"/>
-            <h2 class="text-white">2</h2>
+            <h2 class="text-white">{{Proc_Sorts}}</h2>
           </div>
         </div>
       </a>
@@ -61,7 +62,7 @@
           <div class="card-body">
             <p class="card-title lead text-white">PROC PRINTTO</p>
             <hr class="text-white"/>
-           <h2 class="text-white">2</h2>
+           <h2 class="text-white">{{Proc_Printto}}</h2>
           </div>
         </div>
       </a>
@@ -74,7 +75,7 @@
             
             <p class="card-title lead ">MACRO</p>
            <hr /> 
-         <h2>2</h2>
+         <h2>{{Macro}}</h2>
           </div>
         </div>
       </a>
@@ -87,7 +88,7 @@
            
             <p class="card-title lead ">PROC TRANSPOSE</p>
            <hr /> 
-         <h2>2</h2>
+         <h2>{{Proc_Transpose}}</h2>
           </div>
         </div>
       </a>
@@ -100,7 +101,7 @@
             
             <p class="card-title lead ">PROC CORRELATION</p>
            <hr /> 
-         <h2>2</h2>
+         <h2>{{Proc_Correlation}}</h2>
           </div>
         </div>
       </a>
@@ -112,7 +113,7 @@
             
             <p class="card-title lead ">PROC FREQ</p>
            <hr /> 
-         <h2>2</h2>
+         <h2>{{Proc_Freq}}</h2>
           </div>
         </div>
       </a>
@@ -125,7 +126,7 @@
             
             <p class="card-title lead ">PROC CONTEXTS</p>
            <hr /> 
-         <h2>2</h2>
+         <h2>{{Proc_Contexts}}</h2>
           </div>
         </div>
       </a>
@@ -138,7 +139,7 @@
            
             <p class="card-title lead "> PROC UNIVARIATE</p>
            <hr /> 
-         <h2>2</h2>
+         <h2>{{Proc_Univariant}}</h2>
           </div>
         </div>
       </a>
@@ -151,7 +152,7 @@
             
             <p class="card-title lead ">PROC</p>
            <hr /> 
-         <h2>2</h2>
+         <h2>{{Proc}}</h2>
           </div>
         </div>
       </a>

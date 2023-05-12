@@ -10,7 +10,10 @@ import { Chart, ChartType, ChartOptions, ChartDataSets  } from 'chart.js';
 })
 export class AdmindashboardComponent implements OnInit { 
 
-  constructor() { }
+  constructor() { 
+    
+
+  }
   // @ViewChild('mychart') mychart;
   // canvas: any;
   // canvas1: any;

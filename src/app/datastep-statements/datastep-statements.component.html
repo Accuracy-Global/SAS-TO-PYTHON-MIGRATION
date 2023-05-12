@@ -14,15 +14,22 @@
     </div>
     <div class="col-3 form-group" style="float: right;align-self: end;margin-bottom: 8px;">
       <!-- <label>Filter</label> -->
-      
-      <select class="form-control">
-        
-        <option value="">Select option</option>
-        <option value="1">1 SCRIPTS</option>
-        <option value="3">3 SCRIPTS</option>
-        <option value="6">6 SCRIPTS</option>
-        
-      </select>
+      <!-- (onFilterChange)="onFilterChange($event)"
+      (onDropDownClose)="onDropDownClose($event)"
+      (onSelect)="onItemSelect($event)" 
+      (onDeSelect)="onDeSelect($event)"
+      (onSelectAll)="onSelectAll($event)"
+      (onDeSelectAll)="onDeSelectAll($event)" -->
+      <ng-multiselect-dropdown
+        [placeholder]="'Filter'"
+        [settings]="dropdownSettings"
+        [data]="dropdownList"
+        [(ngModel)]="selectedItems"
+        (onSelect)="onItemSelect($event)"
+        (onSelectAll)="onSelectAll($event)"
+        (onFilterChange)="onItemSelect($event)"
+      >
+      </ng-multiselect-dropdown>
     </div>
   </div>
 
@@ -36,7 +43,7 @@
               
               <p class="card-title lead ">Array</p>
               <hr />
-              <h2>2</h2>
+              <h2>{{Array}}</h2>
             </div>
           </div>
         </a>
@@ -48,7 +55,7 @@
               
               <p class="card-title lead ">DROP</p>
               <hr />
-              <h2>2</h2>
+              <h2>{{Drop}}</h2>
             </div>
           </div>
         </a>
@@ -61,7 +68,7 @@
               
               <p class="card-title lead ">KEEP</p>
               <hr />
-              <h2>2</h2>
+              <h2>{{Keep}}</h2>
             </div>
           </div>
         </a>
@@ -74,7 +81,7 @@
              
               <p class="card-title lead "> RENAME</p>
               <hr />
-              <h2>2</h2>
+              <h2>{{Rename}}</h2>
             </div>
           </div>
         </a>
@@ -87,7 +94,7 @@
               
               <p class="card-title lead ">SET</p>
               <hr />
-              <h2>2</h2>
+              <h2>{{Set}}</h2>
             </div>
           </div>
         </a>
@@ -101,7 +108,7 @@
               
               <p class="card-title lead ">CROSS JOIN</p>
               <hr />
-              <h2>2</h2>
+              <h2>{{Cross_join}}</h2>
             </div>
           </div>
         </a>
@@ -112,7 +119,7 @@
               
               <p class="card-title lead ">FULL JOIN</p>
               <hr />
-              <h2>2</h2>
+              <h2>{{Full_Join}}</h2>
             </div>
           </div>
         </a>
@@ -123,7 +130,7 @@
               
               <p class="card-title lead ">INNER JOIN</p>
               <hr />
-              <h2>2</h2>
+              <h2>{{Inner_Join}}</h2>
             </div>
           </div>
         </a>
@@ -134,7 +141,7 @@
               
               <p class="card-title lead ">LEFT JOIN</p>
               <hr />
-              <h2>2</h2>
+              <h2>{{Left_Join}}</h2>
             </div>
           </div>
         </a>
@@ -145,7 +152,7 @@
               
               <p class="card-title lead ">RIGHT JOIN</p>
               <hr />
-              <h2>2</h2>
+              <h2>{{Right_Join}}</h2>
             </div>
           </div>
         </a>
@@ -157,7 +164,7 @@
               
               <p class="card-title lead ">PARAMETER</p>
               <hr />
-              <h2>2</h2>
+              <h2>{{Parameter}}</h2>
             </div>
           </div>
         </a>
@@ -169,7 +176,7 @@
               
               <p class="card-title lead ">MERGE</p>
               <hr />
-              <h2>2</h2>
+              <h2>{{Merge}}</h2>
             </div>
           </div>
         </a>
