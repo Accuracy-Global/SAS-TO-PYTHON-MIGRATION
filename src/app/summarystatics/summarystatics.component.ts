@@ -60,7 +60,6 @@ export class SummarystaticsComponent implements OnInit {
     // console.log(this.selectedItems);
     // let data = this.selectedItems;
     this.httpService.postAppgetscriptinfo(item).subscribe(response => {
-      
       console.log(response);
       this.No_of_sas_Variables = response.data['No_of_sas_Variables'];
       this.No_of_macros = response.data['No_of_macros'];
