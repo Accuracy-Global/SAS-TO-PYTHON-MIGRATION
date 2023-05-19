@@ -70,6 +70,38 @@ export class AdmindashboardComponent implements OnInit {
   ngOnInit(): void {
     this.Getpwactstable();
 
+    
+
+    
+
+    
+  }
+
+//   "data": {
+//     "Total_script": 6,
+//     "simple_script": 2
+//     "complex_script": 2,
+//     "medium_script": 2,
+// },
+  Getpwactstable() {
+
+    let data = []
+
+    this.httpService.getAssesmentgraph(data).subscribe(response => {
+
+      console.log(response['data']);
+
+      this.Total_script= response.data['Total_script'];
+      this.complex_script= response.data['complex_script'];
+      this.medium_script= response.data['medium_script'];
+      this.simple_script= response.data['simple_script'];
+      this.plotGraph();
+      // console.log(this.Total_script);
+
+    });
+  }
+
+  plotGraph() {
     this.chart = new Chart("canvas", {
       type: "bar",
       data: {
@@ -95,34 +127,6 @@ export class AdmindashboardComponent implements OnInit {
           ]
         }
       }
-    });
-
-    
-
-    
-  }
-
-//   "data": {
-//     "Total_script": 6,
-//     "simple_script": 2
-//     "complex_script": 2,
-//     "medium_script": 2,
-// },
-  Getpwactstable() {
-
-    let data = []
-
-    this.httpService.getAssesmentgraph(data).subscribe(response => {
-
-      console.log(response['data']);
-
-      this.Total_script= response.data['Total_script'];
-      this.complex_script= response.data['complex_script'];
-      this.medium_script= response.data['medium_script'];
-      this.simple_script= response.data['simple_script'];
-
-      // console.log(this.Total_script);
-
     });
   }
 
