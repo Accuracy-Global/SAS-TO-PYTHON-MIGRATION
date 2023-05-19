@@ -59,9 +59,9 @@ export class MacrosSummaryComponent implements OnInit {
 
   onItemSelect(item: any) {
     console.log(item);
-    console.log(this.selectedItems);
-    let data = this.selectedItems;
-    this.httpService.postAppgetscriptinfo(data).subscribe(response => {
+    // console.log(this.selectedItems);
+    // let data = this.selectedItems;
+    this.httpService.postAppgetscriptinfo(item).subscribe(response => {
       
       console.log(response);
 
